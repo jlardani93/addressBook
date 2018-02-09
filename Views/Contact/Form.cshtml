@@ -1,23 +1,39 @@
+@using AddressBookProject.Models;
+
 @{
   Layout = "_Layout";
 }
 
+@{string name = "";}
+@{string message = "";}
+
+@if (Model != null)
+{
+  name = @Model;
+  message = "The contact you searched for is not in your Address Book. ";
+}
+
 <div class="container">
-  <h2>Fill out and submit the form below to create a new contact</h2>
+  <h2>@message Fill out and submit the form below to create a new contact.</h2>
   <hr>
   <form id="ContactForm" action="/Contact/Create" method="post">
     <div class="form-group">
       <label for="name">Contact Name: </label>
-      <input type="text" name="name" id="name" class="form-control">
+      <input type="text" name="name" id="name" class="form-control" value="@name" required>
     </div>
     <div class="form-group">
       <label for="phoneNumber">Phone Number:  </label>
-      <input type="text" name="phoneNumber" id="phoneNumber" class="form-control">
+      <input type="text" name="phoneNumber" id="phoneNumber" class="form-control" required>
     </div>
     <div class="form-group">
       <label for="address">Address: </label>
-      <input type="text" name="address" id="address" class="form-control">
+      <input type="text" name="address" id="address" class="form-control" required>
     </div>
     <button type="submit" class="btn">Submit Contact Information</button>
+
+    @if (Contact.GetContacts().Count > 0)
+    {
+      <a href="/Contact/Display"><button type="button" class="btn">View All Contacts</button></a>
+    }
   </form>
 </div>

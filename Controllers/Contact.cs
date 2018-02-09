@@ -65,7 +65,8 @@ namespace AddressBookProject.Controllers
       }
       else
       {
-        return View("Form");
+        Console.WriteLine(name);
+        return View("Form", name);
       }
     }
   }
