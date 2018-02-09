@@ -1,0 +1,21 @@
+@{
+  Layout = "_Layout";
+}
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <h2>@Model.GetName()</h2>
+      <h3>Phone Number: @Model.GetPhoneNumber()</h3>
+      <h3>Address: @Model.GetAddress()</h3>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <a href="/Contact/Form"><button type="button" class="btn">Create Another Contact</button></a>
+    </div>
+    <div class="col-md-6">
+      <a href="/Contact/Info"><button type="button" class="btn">View All Contacts</button></a>
+    </div>
+  </div>
+</div>
