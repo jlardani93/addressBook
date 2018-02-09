@@ -45,5 +45,12 @@ namespace AddressBookProject.Controllers
       Contact.ClearContacts();
       return RedirectToAction("Display");
     }
+
+    [HttpGet("/Contact/Delete/{id}")]
+    public ActionResult Delete(int id)
+    {
+      Contact.RemoveItem(id);
+      return RedirectToAction("Display");
+    }
   }
 }

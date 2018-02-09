@@ -51,7 +51,17 @@ namespace AddressBookProject.Models
 
     public int GetId()
     {
-      return _id; 
+      return _id;
+    }
+
+    public static void RemoveItem(int id)
+    {
+      _contacts.RemoveAt(id-1);
+      // Resets the id value for each contact in the contacts list
+      for (int i = 0; i < _contacts.Count; i++)
+      {
+        _contacts[i]._id = i+1;
+      }
     }
 
     public static List<Contact> GetContacts()
