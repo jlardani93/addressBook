@@ -49,6 +49,11 @@ namespace AddressBookProject.Models
       _id = _contacts.Count;
     }
 
+    public int GetId()
+    {
+      return _id; 
+    }
+
     public static List<Contact> GetContacts()
     {
       return _contacts;

@@ -21,7 +21,7 @@ namespace AddressBookProject.Controllers
       myContact.SetName(Request.Form["name"]);
       myContact.SetAddress(Request.Form["address"]);
       myContact.SetPhoneNumber(Request.Form["phoneNumber"]);
-      myContact.Add();
+      myContact.Save();
       return View(myContact);
     }
 
@@ -29,7 +29,7 @@ namespace AddressBookProject.Controllers
     public ActionResult Display()
     {
       List<Contact> myContacts = Contact.GetContacts();
-      return view(myContacts);
+      return View(myContacts);
     }
 
     [HttpGet("/Contact/Info/{id}")]
@@ -43,7 +43,7 @@ namespace AddressBookProject.Controllers
     public ActionResult Clear()
     {
       Contact.ClearContacts();
-      return RedirectToAction("Display"); 
+      return RedirectToAction("Display");
     }
   }
 }
