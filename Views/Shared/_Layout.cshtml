@@ -1,3 +1,5 @@
+@using AddressBookProject.Models;
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -5,6 +7,7 @@
     <title>AddressBook Project</title>
     <link rel="stylesheet" href="/css/bootstrap.css">
     <link rel="stylesheet" href="/css/styles.css">
+    <script type="text/javascript" src="/scripts/jquery-3.3.1.js"></script>
   </head>
   <body>
     <div class="container" id="jumbotronContainer">
@@ -12,6 +15,17 @@
         <h1>Address Book</h1>
       </div>
     </div>
+    @if (Contact.GetContacts().Count > 0)
+    {
+      <div id="searchBarContainer">
+        <form action="/Contact/Search" method="get">
+          <div class="form-group" id="searchBar">
+            <input type="text" name="searchName" id="searchName" value="Contact Name">
+            <button type="submit" class="btn">Search</button>
+          </div>
+        </form>
+      </div>
+    }
   @RenderBody()
     <div id="footer">
       <p>Copyright &#0169; Justin Lardani
@@ -20,3 +34,11 @@
     </div>
   </body>
 </html>
+
+<script type="text/javascript">
+  $(document).ready(function() {
+    $("#searchName").click(function() {
+      $(this).attr("value", "");
+    });
+  });
+</script>

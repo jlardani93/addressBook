@@ -52,5 +52,21 @@ namespace AddressBookProject.Controllers
       Contact.RemoveItem(id);
       return RedirectToAction("Display");
     }
+
+    [HttpGet("/Contact/Search")]
+    public ActionResult Search()
+    {
+      string name = Request.Query["searchName"];
+      int id = Contact.Search(name);
+      if (id != 0)
+      {
+        Contact myContact = Contact.Find(id);
+        return View("Create", myContact);
+      }
+      else
+      {
+        return View("Form");
+      }
+    }
   }
 }

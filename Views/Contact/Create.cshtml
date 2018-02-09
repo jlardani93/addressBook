@@ -19,7 +19,18 @@
       <a href="/Contact/Display"><button type="button" class="btn">View All Contacts</button></a>
     </div>
     <div class="col-md-4">
-      <a href="/Contact/Delete/@Model.GetId()"><button type="button" class="btn">Delete This Contact</button></a>
+      <a href="/Contact/Delete/@Model.GetId()" id="deleteContact"><button type="button" class="btn">Delete This Contact</button></a>
     </div>
   </div>
 </div>
+
+<script type="text/javascript">
+  $(document).ready(function() {
+    $("#deleteContact").click(function() {
+      if(!confirm("Are you sure you would like to delete this contact?")) {
+        $("#deleteContact").attr("href", "/Contact/Info/@Model.GetId()");
+        console.log("Rerouting");
+      };
+    });
+  });
+</script>

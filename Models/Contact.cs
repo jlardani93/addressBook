@@ -74,6 +74,18 @@ namespace AddressBookProject.Models
       return _contacts[id-1];
     }
 
+    public static int Search(string name)
+    {
+      for (int i = 0; i < _contacts.Count; i++)
+      {
+        if (_contacts[i]._name.Equals(name))
+        {
+          return _contacts[i]._id;
+        }
+      }
+      return 0; 
+    }
+
     public static void ClearContacts()
     {
       _contacts.Clear();
