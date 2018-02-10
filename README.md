@@ -11,8 +11,10 @@ Address Book is a web application built with C# Asp Net Core MVC framework. User
 ## Setup/Installation Requirements
 
 * Clone this repository to your desktop.
-* Navigate to the cloned directory in your terminal.
-* Run the command dotnet run.
+* Navigate to the cloned directory in a terminal capable of running dotnet commands.
+* Run the command >dotnet add package Microsoft.AspNetCore.StaticFiles -v 1.1.3.
+* Run the command >dotnet restore.
+* Run the command >dotnet run.
 * Navigate to localhost:5000 in your browser.
 
 ## Known Bugs

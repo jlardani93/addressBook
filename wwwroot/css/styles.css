@@ -138,6 +138,10 @@ div#searchBarContainer {
   margin-top: 30px;
 }
 
+#searchBar input:hover, #searchBar input:focus {
+  box-shadow: 0px 0px 25px Coral;
+}
+
 #indexButton {
   margin-top: 0px;
   padding-top: 0px;
